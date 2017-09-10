@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>teacher</title>
+  </head>
+  <body>
+    <form action="/teacher">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" name="fn" value=""></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" name="ln" value=""></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" name="email" value=""></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="" value="Save"></td>
+        </tr>
+      </table>
+    </form>
+
+    <a href="/"> back to home </a>
+    <h1>Teacher</h1>
+    <table>
+      <thead>
+        <th>id</th>
+        <th>firs name</th>
+        <th>last name</th>
+        <th>Email</th>
+        <th>create At</th>
+        <th>updata At</th>
+      </thead>
+      <% var id = 1
+      data.forEach(rek =>{%>
+        <tbody>
+          <td><%= id%></td>
+          <td><%= rek.first_name%></td>
+          <td><%= rek.last_name%></td>
+          <td><%= rek.email%></td>
+          <td><%= rek.createAt%></td>
+          <td><%= rek.updateAt%></td>
+          <td>
+            <a href="/teacher/delete/<%= rek.id %>">Delete</a>
+            <a href="/teacher/edit/<%= rek.id%>">Edit</a>
+          </td>
+        </tbody>
+      <% id++}) %>
+    </table>
+
+  </body>
+</html>
